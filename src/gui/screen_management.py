@@ -1,7 +1,11 @@
 import pygame
-from src.gui.loading_screen import LoadingScreen
+from src.gui.background import Background
+from src.gui.grid import Grid
 
 class ScreenManager():
     def __init__(self, screen):
         self.screen = screen
-        self.loading_screen = LoadingScreen(self.screen)
+        self.background = Background(self.screen)
+        self.background.draw_background()
+        self.grid = Grid(self.screen)
+        self.grid.draw_grid()
