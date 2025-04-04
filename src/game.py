@@ -6,8 +6,11 @@ class Game():
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        pygame.display.set_caption("Sešinieks")
         self.clock = pygame.time.Clock()
         self.running = True
+
+        self.bg = pygame.image.load(loading_image)
 
     def main(self):
         while self.running:
@@ -16,11 +19,9 @@ class Game():
                 if event.type == pygame.QUIT:
                     self.running = False
 
-            # fill the screen with a color to wipe away anything from last frame
-            self.screen.fill("lightgreen")
-
             # RENDER YOUR GAME HERE
-            self.guy = ScreenManager(self.screen)
+            self.gui = ScreenManager(self.screen)
+            # self.screen.blit(self.bg, (0, 0))
 
             # flip() the display to put your work on screen
             pygame.display.flip()
